@@ -18,6 +18,7 @@ async function registerUser() {
 
   const profile = document.getElementById("profile")
   profile.innerHTML = "";
+  h1.innerHTML = `${name}`
 }
 
 async function fetchMessages() {

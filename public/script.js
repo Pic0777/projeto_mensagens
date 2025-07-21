@@ -15,6 +15,8 @@ async function registerUser() {
   localStorage.setItem("userId", currentUserId);
 
   alert(`Usuário registrado como ${name}`);
+
+  
 }
 
 async function fetchMessages() {

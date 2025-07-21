@@ -29,6 +29,7 @@ body{
     color: white;
     font-size: 20px;
     text-align: center;
+    transform: scale(0.9);
 }
 .content button:hover{
     cursor: pointer;
@@ -48,7 +49,4 @@ body{
 }
 .messageInputDiv input{
     width: 500px;
-}
-.messageInputDiv button{
-    transform: scale(0.9);
 }

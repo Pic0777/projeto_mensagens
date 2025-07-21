@@ -1,27 +1,27 @@
-import express from 'express';
-import cors from 'cors'
-
+const express = require("express");
 const app = express();
+const path = require("path");
 
-app.listen(3000, () =>{
-    console.log("Servidor rodando em http://localhost:3000");
-})
+app.use(express.json());
+app.use(express.static(path.join(__dirname, "public"))); // <-- ADICIONE ESTA LINHA
 
-app.use(cors());
-app.use(express.json())
+let messages = [];
 
-let mensagens = [];
+// Rotas de mensagens
+app.get("/messages", (req, res) => {
+  res.json(messages);
+});
 
-app.get("/mensagens", (req, res) =>{
-    res.json(mensagens)
-})
+app.post("/messages", (req, res) => {
+  const { text } = req.body;
+  if (!text) return res.status(400).json({ error: "Mensagem vazia" });
 
-app.post("/mensagens", (req,res) =>{
-    const {text} = req.body;
-    if (!text) return res.status(400).json({error: "Mensagem vazia!"})
+  const newMessage = { text, date: new Date() };
+  messages.push(newMessage);
 
-    const newMessage = {text, date: new Date()};
-    mensagens.push(newMessage)
+  res.status(201).json(newMessage);
+});
 
-    res.status(201).json(newMessage)
-})
+// Porta
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));

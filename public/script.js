@@ -3,7 +3,7 @@ async function fetchMessages() {
     const data = await res.json()   
     const list = document.getElementById("messageList");
     list.innerHTML = "";
-    data.array.forEach(msg => {
+    data.forEach(msg => {
         const li = document.createElement("li");
         li.textContent = `${msg.text} - ${new Date(msg.date).toLocaleTimeString()}`
         list.appendChild(li);
@@ -17,7 +17,7 @@ async function sendMessage() {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({text})
     });
-    document.getElementById("messsageInput").value="";
+    document.getElementById("messageInput").value="";
     fetchMessages();
 }
 

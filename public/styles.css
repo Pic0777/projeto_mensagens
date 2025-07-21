@@ -42,3 +42,13 @@ body{
     overflow-y: auto;
     border-radius: 10px;
 }
+
+.messageInputDiv{
+    display: flex;
+}
+.messageInputDiv input{
+    width: 500px;
+}
+.messageInputDiv button{
+    transform: scale(0.9);
+}

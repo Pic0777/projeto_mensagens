@@ -16,9 +16,7 @@ async function registerUser() {
 
   alert(`Usuário registrado como ${name}`);
 
-  const profile = document.getElementById("profile")
-  profile.innerHTML = "";
-  h1.innerHTML = `${name}`
+  
 }
 
 async function fetchMessages() {
@@ -49,6 +47,13 @@ async function sendMessage() {
   document.getElementById("messageInput").value = ""; // <-- corrigido "messsageInput"
   fetchMessages();
 }
+
+const input = document.getElementById("messageInput");
+  input.addEventListener("keydown", function (event){
+    if (event.key === "Enter") {
+    sendMessage(); // Chama a função de enviar mensagem
+    }
+  })
 
 setInterval(fetchMessages, 5000);
 fetchMessages();

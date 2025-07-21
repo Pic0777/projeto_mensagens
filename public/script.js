@@ -17,7 +17,7 @@ async function registerUser() {
   alert(`Usuário registrado como ${name}`);
 
   const profile = document.getElementById("profile")
-  profile.innerHTML("")
+  profile.innerHTML = "";
 }
 
 async function fetchMessages() {

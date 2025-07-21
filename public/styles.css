@@ -36,7 +36,6 @@ body{
 .messageArea{
     background-color: antiquewhite;
     width: 50%;
-    height: 300px;
     max-height: 400px;
     overflow-y: auto;
 }

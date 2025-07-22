@@ -13,6 +13,7 @@ async function registerUser() {
   const user = await res.json();
   currentUserId = user.id;
   localStorage.setItem("userId", currentUserId);
+  localStorage.setItem("userName", name);
 
   alert(`Usuário registrado como ${name}`);
 

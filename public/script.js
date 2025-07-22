@@ -16,13 +16,16 @@ async function registerUser() {
 
   alert(`Usuário registrado como ${name}`);
 
-  if (name != ""){
-    const profile = document.getElementById("profile")
-    profile.innerHTML=""
-    const h1 = document.createElement("h1")
-    h1.innerHTML = `<h1>${name}<h1>`
-    profile.appendChild(h1)
+  window.onload = function () {
+  const savedName = localStorage.getItem("userName");
+  if (savedName) {
+    const profile = document.getElementById("profile");
+    profile.innerHTML = ""; // limpa a área
+    const h1 = document.createElement("h1");
+    h1.innerHTML = `${savedName}`;
+    profile.appendChild(h1);
   }
+};
 }
 
 async function fetchMessages() {
